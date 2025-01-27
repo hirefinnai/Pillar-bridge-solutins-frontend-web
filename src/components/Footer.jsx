@@ -28,7 +28,7 @@ function Footer() {
     <footer
       className="relative overflow-hidden"
         style={{
-        background: "linear-gradient(100deg, #013B4F 0%,rgb(104, 175, 188) 50%, #013B4F 100%)",
+        background: "linear-gradient(100deg, #013B4F 0%,rgb(51, 112, 122) 40%, #013B4F 100%)",
         }}
     >
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="w-full max-w-7xl mx-auto text-white">
