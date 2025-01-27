@@ -1,67 +1,82 @@
 'use client'
-
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 function Hero() {
   return (
-    <section>
+    <section className="relative">
       {/* Hero Banner Section */}
-      <div className="relative bottom-6 bg-customBlue w-full pb-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="pt-16 lg:pt-24">
-            <div className="flex flex-col lg:flex-row justify-between items-start mb-12">
+      <div className="relative bg-[#013B4F] w-full pb-28 lg:pb-36">
+        <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 3xl:px-16">
+          <div className="pt-24 lg:pt-32">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="flex flex-col lg:flex-row justify-between items-start mb-20"
+            >
               {/* Text Content */}
               <div className="lg:w-7/12">
-                <h1 className="text-white text-xl md:text-xl xl:text-6xl font-medium leading-tight">
-                  Your Claim. Our Priority.
+                <h1 className="text-white text-4xl md:text-5xl xl:text-6xl font-bold leading-tight mb-10">
+                Your Claim. Our Priority. 
                   <br />
-                  Secure the Compensation
-                  <br />
-                  You Deserve.
+                  Secure the Compensation <br /> You Deserve for your Injuries.
+                  
                 </h1>
               </div>
-              <div className="relative lg:w-4/12 mt-6 lg:mt-0 top-10">
-                <p className=" text-white/90 text-xl lg:text-xl sm:text-lg">
+              <div className="lg:w-4/12 mt-8 lg:mt-0">
+                <p className="text-white/90 text-lg lg:text-xl leading-relaxed">
                   From injury to recovery, we stand with
                   <br />you—navigating claims, securing support, and helping you reclaim what's rightfully yours.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Call to Action */}
-            <div className="mb-12">
-              <Link 
-                href="/check-eligibility"
-                className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white text-black font-medium hover:bg-gray-100 transition-colors duration-200"
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="mb-20"
+            >
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-4 px-6 py-3 rounded-full bg-white text-black font-medium hover:bg-gray-100 transition-all duration-300 group"
               >
-                <img
-                 src="/images/arrow.png" 
-                 alt="Arrow" 
-                 className="w-auto h-6 object-contain"
-                  />
+                <Image
+                  src="/images/arrow.jpg"
+                  alt="Arrow"
+                  width={24}
+                  height={24}
+                  className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300"
+                />
                 <span>Check Eligibility</span>
               </Link>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
 
       {/* Image Section */}
-      <div className="w-full bg-white -mt-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative w-full aspect-[16/9] rounded-lg overflow-hidden lg:max-w-3/4 md:max-w-2/3 mx-auto">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4 }}
+        className="w-full bg-white -mt-24 lg:-mt-28"
+      >
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl">
             <Image
-              src="/images/heroimg1.png"
-              alt="Professional consultation"
+              src="/images/damage-buildings.svg"
+              alt="Damaged building"
               fill
               className="object-cover"
               priority
             />
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

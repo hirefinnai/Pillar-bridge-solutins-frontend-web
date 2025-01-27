@@ -1,111 +1,207 @@
-import React from 'react';
+"use client"
+import React from "react"
+import { motion } from "framer-motion"
+import Image from "next/image"
+import Link from "next/link"
+
+const FooterLink = ({ children, href = "#" }) => (
+  <motion.li whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 400 }}>
+    <Link href={href} className="hover:text-gray-300 transition-colors duration-200 inline-block text-gray-300 text-sm md:text-base font-light">
+      {children}
+    </Link>
+  </motion.li>
+)
+
+const BlogTag = ({ children }) => (
+  <motion.a
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    href="#"
+    className="px-3 py-1.5 bg-white/5 rounded-full text-xs md:text-sm hover:bg-white/10 transition-colors text-gray-300"
+  >
+    {children}
+  </motion.a>
+)
 
 function Footer() {
-  const appStoreLinks = {
-    apple: "https://apps.apple.com",
-    google: "https://play.google.com",
-  };
-
   return (
-    <footer className="bg-gradient-to-br from-[#3b4bf5] to-[#3b4bf5]">
-      <div className="w-full bg-gradient-to-r from-blue-450 via-white/20 to-blue-450 text-white min-h-screen max-w-7xl mx-auto">
-        <div className="bg-gradient-to-r from-navy-400 via-white/20 to-navy-400 text-white min-h-screen  grid grid-cols-1 md:grid-cols-[300px,1fr] gap-16 lg:gap-[16rem] min-h-full">
-          {/* Left Column - Logo */}
-          <div className="p-6 md:p-8 ">
-            <img
-              src="/images/logo2.png"
-              alt="PBS Logo"
-              className="h-3 w-auto mx-auto md:mx-0"
-            />
-          </div>
+    <footer
+      className="relative overflow-hidden"
+        style={{
+        background: "linear-gradient(100deg, #004A54 0%, #00323B 100%)",
+        }}
+    >
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="w-full max-w-7xl mx-auto text-white">
+        <div className="grid grid-cols-1 md:grid-cols-[280px,1fr] gap-12 p-8 lg:p-12">
+          {/* Left Column - Logo and Address */}
+          <motion.div initial={{ x: -50 }} animate={{ x: 0 }} className="space-y-8">
+            <Link href="/">
+              <Image
+                src="/images/logo2.png"
+                alt="PBS Logo"
+                width={120}
+                height={40}
+                className="h-8 w-auto brightness-0 invert"
+              />
+            </Link>
+            <div className="space-y-2">
+              <p className="text-white text-base md:text-lg font-semibold">Pillar Bridge Solutions, Inc.</p>
+              <p className="text-gray-300 text-sm md:text-base font-light">112 Pine St, 6th Floor</p>
+              <p className="text-gray-300 text-sm md:text-base font-light">San Francisco, California 94102</p>
+              <p className="text-gray-300 text-sm md:text-base font-light">United States of America</p>
+              <p className="text-gray-300 text-sm md:text-base font-light pt-3">+1 789 456 111</p>
+            </div>
+          </motion.div>
 
-          {/* Right Column - Content */}
-          <div className="p-6 md:p-8 border-b md:border-b-0 md:border-l border-white">
-            {/* Main Links Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-8 border-b border-white/20 pb-8">
-              {/* Benefits Column */}
-              <div className="border-b sm:border-b-0 sm:border-r border-white pb-6 sm:pb-0 pr-0 sm:pr-8">
-                <h3 className="text-lg font-medium mb-4">Benefits</h3>
-                <ul className="space-y-2 text-white">
-                  <li><a href="#" className="hover:text-white">Health Insurance</a></li>
-                  <li><a href="#" className="hover:text-white">Benefits</a></li>
-                  <li><a href="#" className="hover:text-white">Retirement</a></li>
+            {/* Right Section with Navigation and Blog */}
+            <div className="relative border-l border-white/10 hidden md:block">
+            <div className="relative pl-16">
+              {/* Navigation Columns */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 pb-10">
+                {/* About Us Column */}
+                <div className="space-y-4">
+                  <h3 className="text-lg font-semibold text-white">About Us</h3>
+                  <ul className="space-y-3">
+                    <FooterLink href="/">Purpose</FooterLink>
+                    <FooterLink href="/">People</FooterLink>
+                  </ul>
+                </div>
+
+                {/* Countries Column */}
+                <div className="space-y-4 border-l border-white/10 pl-10">
+                  <h3 className="text-lg font-semibold text-white">Countries</h3>
+                  <ul className="space-y-3">
+                    <FooterLink href="/">Asia</FooterLink>
+                    <FooterLink href="/">Africa</FooterLink>
+                    <FooterLink href="/">Europe</FooterLink>
+                    <FooterLink href="/">America</FooterLink>
+                    <FooterLink href="/">Middle East</FooterLink>
+                  </ul>
+                </div>
+
+                {/* Resources Column */}
+                <div className="space-y-4 border-l border-white/10 pl-10">
+                  <h3 className="text-lg font-semibold text-white">Resources</h3>
+                  <ul className="space-y-3">
+                    <FooterLink href="/contact">Talk to us</FooterLink>
+                    <FooterLink href="/">Blog</FooterLink>
+                    <FooterLink href="/">Careers</FooterLink>
+                    <FooterLink href="/">Become a partner</FooterLink>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Blog Section */}
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                className="pt-8 border-t border-white/10"
+              >
+                <h3 className="text-lg font-semibold text-white mb-4">Our Blog</h3>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "UGANDA",
+                    "UK",
+                    "HEALTH INSURANCE",
+                    "RETIREMENT",
+                    "EMPLOYEE BENEFITS",
+                    "PARTNERSHIPS",
+                    "PRODUCT",
+                    "MEET THE TEAM",
+                    "COMPANY NEWS",
+                  ].map((tag) => (
+                    <BlogTag key={tag}>{tag}</BlogTag>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+            </div>
+
+            {/* Mobile Navigation */}
+            <div className="md:hidden space-y-10">
+              <div className="grid grid-cols-1 gap-10">
+              {/* About Us Column */}
+              <div className="space-y-4">
+                <h3 className="text-lg font-semibold text-white">About Us</h3>
+                <ul className="space-y-3">
+                <FooterLink href="/">Purpose</FooterLink>
+                <FooterLink href="/">People</FooterLink>
                 </ul>
               </div>
 
-              {/* Solutions Column */}
-              <div className="border-b sm:border-b-0 sm:border-r border-white pb-6 sm:pb-0 pr-0 sm:pr-8">
-                <h3 className="text-lg font-medium mb-4">Solutions</h3>
-                <ul className="space-y-2 text-white">
-                  <li><a href="#" className="hover:text-white">Startups</a></li>
-                  <li><a href="#" className="hover:text-white">Mid-sized</a></li>
-                  <li><a href="#" className="hover:text-white">Developers</a></li>
+              {/* Countries Column */}
+              <div className="space-y-4">
+                <h3 className="text-lg font-semibold text-white">Countries</h3>
+                <ul className="space-y-3">
+                <FooterLink href="/">Asia</FooterLink>
+                <FooterLink href="/">Africa</FooterLink>
+                <FooterLink href="/">Europe</FooterLink>
+                <FooterLink href="/">America</FooterLink>
+                <FooterLink href="/">Middle East</FooterLink>
                 </ul>
               </div>
 
               {/* Resources Column */}
-              <div>
-                <h3 className="text-lg font-medium mb-4">Resources</h3>
-                <ul className="space-y-2 text-white">
-                  <li><a href="#" className="hover:text-white">Help Centre</a></li>
-                  <li><a href="#" className="hover:text-white">Blog</a></li>
-                  <li><a href="#" className="hover:text-white">Cost Calculator</a></li>
-                  <li><a href="#" className="hover:text-white">FAQ</a></li>
-                  <li><a href="#" className="hover:text-white">Careers</a></li>
-                  <li><a href="#" className="hover:text-white">Become a Partner</a></li>
+              <div className="space-y-4">
+                <h3 className="text-lg font-semibold text-white">Resources</h3>
+                <ul className="space-y-3">
+                <FooterLink href="/contact">Talk to us</FooterLink>
+                <FooterLink href="/">Blog</FooterLink>
+                <FooterLink href="/">Careers</FooterLink>
+                <FooterLink href="/">Become a partner</FooterLink>
                 </ul>
               </div>
-            </div>
-
-            {/* Blog Section */}
-            <div className="py-8">
-              <h3 className="text-lg font-medium mb-6">Our Blog</h3>
-              <div className="flex flex-wrap gap-2">
-                {[
-                  'IRELAND',
-                  'UK',
-                  'HEALTH INSURANCE',
-                  'RETIREMENT',
-                  'EMPLOYEE BENEFITS',
-                  'PARTNERSHIPS',
-                  'PRODUCT',
-                  'MEET THE TEAM',
-                  'COMPANY NEWS',
-                ].map((tag) => (
-                  <a
-                    key={tag}
-                    href="#"
-                    className="px-3 py-1 bg-white/10 rounded-full text-sm hover:bg-white/20 transition-colors"
-                  >
-                    {tag}
-                  </a>
-                ))}
               </div>
-            </div>
-          </div>
-        </div>
 
-        {/* Bottom Section - Full Width */}
-        <div className="mt-8">
-          <div className="p-6 md:p-12 text-sm text-gray-400">
-            <p className="mb-4 text-center md:text-left">
-              © Copyright 2024 - Built with love from US 🤍
-            </p>
-            <p className="mb-6 leading-relaxed text-center md:text-left">
-              *inote Technology Limited, trading as Kota, is a Tied Intermediary of Tailored Finance Limited for Insurance
-              and Pensions. Tailored Finance Limited is regulated by the Central Bank of Ireland. Company Registration
-              No. 711628. Registered Office: 126 Mount Street Lower, Dublin 2, D02 AP38.
-            </p>
-            <div className="flex flex-wrap justify-center md:justify-start gap-6">
-              <a href="#" className="hover:text-white">Terms of Service</a>
-              <a href="#" className="hover:text-white">Privacy Policy</a>
-              <a href="#" className="hover:text-white">Regulatory</a>
+              {/* Blog Section Mobile */}
+              <motion.div
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              className="pt-8 border-t border-white/10"
+              >
+              <h3 className="text-lg font-semibold text-white mb-4">Our Blog</h3>
+              <div className="flex flex-wrap gap-2">
+              {[
+                "UGANDA",
+                "UK",
+                "HEALTH INSURANCE",
+                "RETIREMENT",
+                "EMPLOYEE BENEFITS",
+                "PARTNERSHIPS",
+                "PRODUCT",
+                "MEET THE TEAM",
+                "COMPANY NEWS",
+              ].map((tag) => (
+                <BlogTag key={tag}>{tag}</BlogTag>
+              ))}
+              </div>
+            </motion.div>
             </div>
           </div>
-        </div>
-      </div>
+
+        {/* Bottom Section */}
+        <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          className="border-t border-white/10 px-8 lg:px-12 py-6"
+        >
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p className="text-xs md:text-sm text-gray-400">© Pillar Bridge solutions {new Date().getFullYear()}</p>
+            <div className="flex gap-8">
+              <Link href="/" className="text-xs md:text-sm text-gray-400 hover:text-white transition-colors">
+              Terms of Service
+              </Link>
+              <Link href="/" className="text-xs md:text-sm text-gray-400 hover:text-white transition-colors">
+                Privacy Policy
+              </Link>
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
     </footer>
-  );
+  )
 }
 
-export default Footer;
+export default Footer
+
+

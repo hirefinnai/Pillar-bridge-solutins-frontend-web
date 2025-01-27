@@ -2,118 +2,103 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
 
-// Define navigation items
 const navItems = [
   { label: 'Home', path: '/' },
-  { label: 'About', path: '/about' },
-  { label: 'Programs', path: '/programs' },
-  { label: 'Countries', path: '/countries' },
-  { label: 'Testimonials', path: '/testimonials' },
+  { label: 'About Us', path: '/about' },
+  { label: 'Contact Us', path: '/contact' },
 ];
+
+const NavLink = ({ href, children }) => (
+  <Link href={href} className="text-[#1a1a1a] hover:text-[#006ba6] px-5 py-2 text-[15px] font-normal transition-colors">
+    {children}
+  </Link>
+);
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-white border-b border-gray-300 mb-4">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6">
-        <div className="flex justify-between h-16 items-center">
-          {/* Logo */}
-          <div className="flex-shrink-0 flex items-center">
+    <nav className="bg-white border-b border-[#e6e6e6]">
+      <div className="max-w-[1400px] mx-auto px-6">
+        <div className="flex justify-between h-[72px] items-center">
+          <div className="flex-shrink-0">
             <Link href="/">
-              <img
-                src="/images/logo.png"
-                alt="Your Logo"
-                className="h-4 w-auto"
+              <Image
+                src="/images/logo.svg"
+                alt="PBS Logo"
+                width={90}
+                height={32}
+                className="h-8 w-auto"
               />
             </Link>
           </div>
 
-          {/* Desktop Navigation (only visible on large screens) */}
-          <div className="hidden lg:flex lg:items-center lg:space-x-2">
-            <div className="flex lg:mr-40 space-x-2">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  href={item.path}
-                  className="text-gray-600 hover:text-blue-600 px-1 py-0 text-sm font-medium transition-colors duration-200 flex items-center"
-                >
-                  {item.label}
-                  <ChevronDown className="ml-1 h-4 w-4" />
-                </Link>
-              ))}
+            <div className="hidden lg:flex lg:items-center lg:justify-center flex-1 ml-12">
+            {navItems.map((item) => (
+              <NavLink key={item.path} href={item.path}>
+              {item.label}
+              </NavLink>
+            ))}
             </div>
-            <div>
-              <Link 
-                href="/contact"
-                className="bg-white text-black border-solid border-black border-2 px-2 py-1.5 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors duration-200 flex items-center group"
-              >
-                <img
-                  src="/images/arrow.png" 
-                  alt="arrow"  
-                  className="w-auto h-6 mr-2 group-hover:translate-x-1 transition-transform"
-                />
-                Contact us
-              </Link>
-            </div>
-          </div>
 
-          {/* Mobile & Tablet menu button (visible on screens below lg breakpoint) */}
-          <div className="lg:hidden">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-blue-600 p-2"
-              aria-label="Toggle menu"
+            <div className="hidden lg:flex lg:items-center">
+            <Link 
+              href="/contact"
+              className="inline-flex items-center px-5 py-2 border border-black text-[15px] font-normal rounded-full text-black hover:bg-customBg hover:text-white transition-colors duration-200"
             >
-              {isMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </button>
-          </div>
+              <span className="mr-2">→</span>
+              Check Eligibility
+            </Link>
+            </div>
+
+            <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="lg:hidden p-2 text-[#1a1a1a]"
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </button>
         </div>
       </div>
 
-      {/* Mobile & Tablet Menu */}
-      {isMenuOpen && (
-        <div className="lg:hidden absolute top-16 left-0 w-full bg-white border-t border-gray-100 shadow-lg z-50">
-          <div className="px-4 py-2 space-y-1">
-            <div className="space-y-1">
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden border-t border-[#e6e6e6]"
+          >
+            <div className="px-6 py-4 space-y-2">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
                   href={item.path}
-                  className="flex items-center justify-between text-gray-600 hover:text-blue-600 hover:bg-gray-50 px-3 py-2 text-base font-medium rounded-lg"
+                  className="block px-4 py-2 text-[15px] font-normal text-[#1a1a1a] hover:text-[#006ba6] hover:bg-[#f5f5f5] rounded-md"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.label}
-                  <ChevronDown className="h-4 w-4" />
                 </Link>
               ))}
-            </div>
-            <div className="mt-4 pb-4">
-              <Link 
+              <Link
                 href="/contact"
-                className="w-full bg-white text-black border-solid border-black border-2 px-4 py-2.5 rounded-full text-sm font-medium hover:bg-blue-700 flex items-center justify-center"
+                className="block px-4 py-2 text-[15px] font-normal text-black hover:bg-[#013B4F] rounded-md"
                 onClick={() => setIsMenuOpen(false)}
               >
-                <Image 
-                  src="/images/arrow.png" 
-                  alt="arrow" 
-                  width={24} 
-                  height={24} 
-                  className="mr-2"
-                />
-                Contact us
+                Check Eligibility
               </Link>
             </div>
-          </div>
-        </div>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };

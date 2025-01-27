@@ -7,22 +7,21 @@ import HowWework from '@/components/HowWeWork';
 import TestimonialSection from '@/components/TestimonialSection';
 import ConnectSection from '@/components/ConnectSection';
 import FAQSection from '@/components/FAQSection';
-import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
-    <main>
+    <main className="min-h-screen bg-gradient-to-br from-[#f8fafc] via-[#f1f5f9] to-[#e2e8f0]">
       <Hero />
-      <WhatWeOffer />
-      <CallToAction />
-      <StepByStep />
-      <Program />
-      <HowWework />
-      <TestimonialSection />
-      <ConnectSection />
-      <FAQSection />
-      <Footer />
-      {/* Other content */}
+      <div className="">
+        <WhatWeOffer />
+        <CallToAction />
+        <StepByStep />
+        <Program />
+        <HowWework />
+        <TestimonialSection />
+        <ConnectSection />
+        <FAQSection />
+      </div>
     </main>
   );
 }

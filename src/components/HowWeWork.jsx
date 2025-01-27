@@ -75,9 +75,9 @@ function HowWeWork() {
             className="inline-flex items-center gap-2 bg-white border border-gray-300 text-gray-800 px-2 py-2 rounded-full font-medium shadow-sm hover:border-gray-400 hover:shadow-md transition-all"
           >
             Let's talk today
-            <div className="rounded-full bg-blue-600 flex items-center justify-center w-8 h-8">
+            <div className="rounded-full  flex items-center justify-center w-8 h-8">
               <img
-                src="/images/arrow.png"
+                src="/images/arrow.jpg"
                 alt="Arrow"
                 className="w-5 h-5 object-contain"
               />

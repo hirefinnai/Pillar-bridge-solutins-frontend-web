@@ -8,17 +8,17 @@ const WhatWeOffer = () => {
     {
       title: "Claim Filing",
       description: "Assistance in filling claims and navigating the USSVT process.",
-      image: "/images/whatweoffer1.png", // Updated to a single image
+      image: "/images/whatweoffer1.jpg", // Updated to a single image
     },
     {
       title: "Medical Support",
       description: "Access to medical, psychological, and legal support.",
-      circleImage: "/images/whatweoffer2.png",
+      circleImage: "/images/whatweoffer2.jpg",
     },
     {
       title: "Translators",
       description: "Translation services for non-English speakers.",
-      mainImage: "/images/whatweoffer3.png",
+      mainImage: "/images/whatweoffer3.jpg",
     },
   ];
 
@@ -26,7 +26,7 @@ const WhatWeOffer = () => {
     {
       title: "Affordable",
       description: "Control spend, remove legal, and say goodbye to broker fees.",
-      image: "/images/whatweoffer4.png",
+      image: "/images/whatweoffer4.jpg",
     },
     {
       title: "Partnership with Leading Firms",

@@ -24,7 +24,9 @@ module.exports = {
           450: '#3b4bf5', // Add a custom shade (e.g., bg-blue-450)
         },
         customBlue: '#3b4bf5',
+        customBg: '#013B4F',
       },
+      
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--gradient-color-stops))',
       },

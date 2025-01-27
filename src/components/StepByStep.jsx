@@ -19,7 +19,7 @@ function StepByStep() {
           <p className="text-sm sm:text-base lg:text-lg uppercase tracking-wider text-gray-500 mb-2">
             ABOUT PILLAR BRIDGE SOLUTIONS
           </p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-navy-900 max-w-4xl mx-auto leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-bold text-navy-900 max-w-4xl mx-auto leading-tight">
             Acting as a pillar between victims and law firms to ensure fair and fast claims.
           </h2>
         </div>
@@ -57,7 +57,7 @@ function StepByStep() {
               </p>
             </div>
 
-            {/* Stats */}
+            {/* Stats 
             <div className="grid grid-cols-3 gap-8">
               <div className="space-y-1">
                 <div className="text-blue-600 font-bold text-xs xs:text-xs sm:text-lg md:text-lg">4K+</div>
@@ -71,15 +71,15 @@ function StepByStep() {
                 <div className="text-blue-600 font-bold text-xs xs:text-xs sm:text-lg md:text-lg">$400K-$500k</div>
                 <div className="text-sm text-gray-600">Average compensation</div>
               </div>
-            </div>
+            </div>*/}s
 
             {/* Learn More Button */}
             <div className="relative inline-block">
               <Link
                 href="/about-us"
-                className="group flex items-center gap-3 bg-white border-2 border-blue-600 text-blue-600 px-2 py-2 rounded-full font-medium hover:bg-blue-50 transition-colors"
+                className="group flex items-center gap-3 bg-white border-2 border-black text-black px-2 py-2 rounded-full font-medium hover:bg-['#013B4F'] transition-colors"
               >
-                <img src="/images/arrow.png" alt="Arrow" className="w-auto h-6 object-contain" />
+                <img src="/images/arrow.jpg" alt="Arrow" className="w-auto h-6 object-contain" />
                 <span>Learn more about us</span>
               </Link>
             </div>
