@@ -22,7 +22,7 @@ export default function AboutUsPage() {
 			{/* Hero Section */}
 			<section
 				className="relative w-full h-[60vh] md:h-[70vh] lg:h-[80vh] bg-cover bg-center bg-no-repeat"
-				style={{ backgroundImage: 'url("/images/about.jpg")' }}
+				style={{ backgroundImage: 'url("/images/about.svg")' }}
 			>
 				<div className="absolute inset-0 bg-black/50 w-full h-full">
 

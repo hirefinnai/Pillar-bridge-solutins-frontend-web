@@ -40,7 +40,7 @@ export default function Contact() {
 				nationality: ''
 			});
 			setShowSuccess(true);
-			
+
 			setTimeout(() => {
 				setShowSuccess(false);
 			}, 5000);
@@ -62,7 +62,7 @@ export default function Contact() {
 				{/* Left side - Image */}
 				<div className="relative h-[300px] md:h-full">
 					<Image
-						src="/images/about.jpg"
+						src="/images/contact.svg"
 						alt="Contact"
 						fill
 						className="object-cover"
@@ -94,8 +94,8 @@ export default function Contact() {
 							)}
 						</AnimatePresence>
 
-						<form 
-							onSubmit={handleSubmit} 
+						<form
+							onSubmit={handleSubmit}
 							className="space-y-6"
 						>
 
@@ -108,7 +108,7 @@ export default function Contact() {
 									id="name"
 									name="name"
 									value={formData.name}
-									onChange={(e) => setFormData({...formData, name: e.target.value})}
+									onChange={(e) => setFormData({ ...formData, name: e.target.value })}
 									className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
 									placeholder="My name"
 									required
@@ -124,7 +124,7 @@ export default function Contact() {
 									id="email"
 									name="email"
 									value={formData.email}
-									onChange={(e) => setFormData({...formData, email: e.target.value})}
+									onChange={(e) => setFormData({ ...formData, email: e.target.value })}
 									className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
 									placeholder="example@domain.com"
 									required
@@ -145,7 +145,7 @@ export default function Contact() {
 											id="phone"
 											name="phone"
 											value={formData.phone}
-											onChange={(e) => setFormData({...formData, phone: e.target.value})}
+											onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
 											className="w-full px-4 py-2 border border-gray-300 rounded-r-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
 											placeholder="999 999 9999"
 											required
@@ -166,7 +166,7 @@ export default function Contact() {
 											id="whatsapp"
 											name="whatsapp"
 											value={formData.whatsapp}
-											onChange={(e) => setFormData({...formData, whatsapp: e.target.value})}
+											onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
 											className="w-full px-4 py-2 border border-gray-300 rounded-r-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
 											placeholder="999 999 9999"
 											required
@@ -184,7 +184,7 @@ export default function Contact() {
 									id="nationality"
 									name="nationality"
 									value={formData.nationality}
-									onChange={(e) => setFormData({...formData, nationality: e.target.value})}
+									onChange={(e) => setFormData({ ...formData, nationality: e.target.value })}
 									className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent text-black"
 									placeholder="India"
 									required
@@ -196,7 +196,7 @@ export default function Contact() {
 								whileTap={{ scale: 0.98 }}
 								type="submit"
 								disabled={isSubmitting}
-								className="w-full py-3 px-6 bg-[#004052] text-white rounded-full hover:bg-[#003042] transition-colors duration-200 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+								className="w-1/8 py-3 px-4 bg-[#004052] text-white rounded-full hover:bg-[#003042] transition-colors duration-200 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
 							>
 								{isSubmitting ? (
 									<>
@@ -209,8 +209,9 @@ export default function Contact() {
 								) : (
 									<>
 										Check eligibility
-										<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-											<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+										<svg width="32" height="32" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<circle cx="38" cy="38" r="38" fill="white" />
+											<path d="M30 46L46 30M46 30H31M46 30V45" stroke="#003B49" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
 										</svg>
 									</>
 								)}

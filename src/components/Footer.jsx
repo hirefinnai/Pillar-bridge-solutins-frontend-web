@@ -28,7 +28,7 @@ function Footer() {
     <footer
       className="relative overflow-hidden"
         style={{
-        background: "linear-gradient(100deg, #013B4F 0%,rgb(51, 112, 122) 40%, #013B4F 100%)",
+        background: "linear-gradient(90deg, #013B4F 0%,#013B4F 23%,rgb(40, 106, 116) 30%,#013B4F 86%)",
         }}
     >
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="w-full max-w-7xl mx-auto text-white">
@@ -97,18 +97,33 @@ function Footer() {
                 animate={{ y: 0, opacity: 1 }}
                 className="pt-8 border-t border-white/10"
               >
-                <h3 className="text-lg font-semibold text-white mb-4">Our Blog</h3>
-                <div className="flex flex-wrap gap-2">
+                <h3 className="text-lg font-semibold text-white mb-4">Countries</h3>
+                <div className="flex flex-wrap uppercase gap-2">
                   {[
+                    "India",
+                    "USA",
+                    "Kenya",
+                    "PhILIPPINES",
                     "UGANDA",
+                    "tURKEY",
+                    "NEPAL",
+                    "KOSOVO",
+                    "ZIMBABWE",
                     "UK",
-                    "HEALTH INSURANCE",
-                    "RETIREMENT",
-                    "EMPLOYEE BENEFITS",
-                    "PARTNERSHIPS",
-                    "PRODUCT",
-                    "MEET THE TEAM",
-                    "COMPANY NEWS",
+                    "SOUTH AFRICA",
+                    "MACEDONIA",
+                    "SRI LANKA",
+                    "ECUADOR",
+                    "BOSNIA",
+                    "Honduras",
+                    "GHANA",
+                    "ETHIOPIA",
+                    "SIERRA LEONE",
+                    "NIGER",
+                    "NAMIBIA",
+                    "HAITI",
+                    "JORDAN",
+                    "CAMEROON",
                   ].map((tag) => (
                     <BlogTag key={tag}>{tag}</BlogTag>
                   ))}

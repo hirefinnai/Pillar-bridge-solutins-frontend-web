@@ -72,7 +72,7 @@ function HowWeWork() {
         <div className="text-center">
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-white border border-gray-300 text-gray-800 px-2 py-2 rounded-full font-medium shadow-sm hover:border-gray-400 hover:shadow-md transition-all"
+            className="inline-flex items-center gap-2 bg-white border border-gray-300 text-gray-800 px-4 py-2 rounded-full font-medium shadow-sm hover:border-gray-400 hover:shadow-md transition-all"
           >
             Let's talk today
             <div className="rounded-full  flex items-center justify-center w-8 h-8">

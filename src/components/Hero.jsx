@@ -42,7 +42,7 @@ function Hero() {
             >
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-4 px-6 py-3 rounded-full bg-white text-black font-medium hover:bg-gray-100 transition-all duration-300 group"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-black font-medium hover:bg-gray-100 transition-all duration-300 group"
               >
                 <Image
                   src="/images/arrow.jpg"
@@ -51,7 +51,7 @@ function Hero() {
                   height={24}
                   className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-300"
                 />
-                <span>Check Eligibility</span>
+                <span>Get Started</span>
               </Link>
             </motion.div>
           </div>
